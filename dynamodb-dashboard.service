@@ -1,0 +1,15 @@
+[Unit]
+Description=A Web GUI Dashboard for local or remote DynamoDB
+After=network.target
+Documentation=https://github.com/kritish-dhaubanjar/dynamodb-dashboard
+
+[Service]
+Type=simple
+ExecStart=/home/jin/.nvm/versions/node/v16.17.1/bin/node /home/jin/.nvm/versions/node/v16.17.1/bin/dynamodb-dashboard start
+Restart=always
+User=jin
+Group=jin
+
+[Install]
+WantedBy=multi-user.target
+Alias=dynamodb.service

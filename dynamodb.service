@@ -1,0 +1,15 @@
+[Unit]
+Description=Amazon DynamoDB is a fully managed, serverless, key-value NoSQL database designed to run high-performance applications at any scale.
+After=network.target
+Documentation=https://docs.aws.amazon.com/dynamodb
+
+[Service]
+Type=simple
+ExecStart=java -Djava.library.path=/home/jin/.local/lib/dynamodb_local_latest/DynamoDBLocal_lib -jar /home/jin/.local/lib/dynamodb_local_latest/DynamoDBLocal.jar -sharedDb -dbPath /home/jin/
+Restart=always
+User=jin
+Group=jin
+
+[Install]
+WantedBy=multi-user.target
+Alias=dynamodb.service
